@@ -1,0 +1,2 @@
+/*! jquery.outerclick */
+(function(d,g,j,e,b,i){var h=g.document;var a=d(g);var c=d(h);d.fn.extend({isAncestorOf:(function(){return function(k){var f=this.get(0);if(k instanceof jQuery){k=k.get(0)}while(k!==b){if(f===k){return j}k=k.parentElement}return e}})(),outerclick:(function(){var k="outerclick";var f=[];d(function(l){c.bind("click",function(m){var n=m.target;l.each(f,function(){var o=this;if(!o.isAncestorOf(n)){o.trigger(k)}})})});return function(l){if(l!==i){f.push(this);return this.bind(k,l)}else{return this.trigger(k)}}})()})})(jQuery,window,true,false,null);
