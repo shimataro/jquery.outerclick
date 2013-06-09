@@ -8,7 +8,11 @@ div
 {
 	margin: 4px;
 	padding: 4px;
-	border: 1px solid #f00;
+	border: 1px solid;
+}
+div#el1
+{
+	border-color: #f00;
 	background: #faa;
 }
 div#el2
@@ -16,17 +20,38 @@ div#el2
 	border: 1px solid #00f;
 	background: #aaf;
 }
+div#el3
+{
+	border-color: #0f0;
+	background: #afa;
+}
+div#el4
+{
+	border-color: #f0f;
+	background: #faf;
+}
+div#el5
+{
+	border-color: #0ff;
+	background: #aff;
+}
 		</style>
 	</head>
 	<body>
-		click outside of "element #2"
-		<div>
+		click outside of "element #2" or "element #5"
+		<div id="el1">
 			element #1
 			<div id="el2">
 				element #2
-				<div>
+				<div id="el3">
 					element #3
 				</div>
+			</div>
+		</div>
+		<div id="el4">
+			element #4
+			<div id="el5">
+				element #5
 			</div>
 		</div>
 
@@ -37,9 +62,10 @@ div#el2
 {
 	$(function($)
 	{
-		$("#el2").outerclick(function()
+		$("#el2,#el5").outerclick(function(event)
 		{
-			window.alert("outside clicked");
+			window.alert("outside of #" + $(this).attr("id") + " clicked");
+			event.stopPropagation();
 		});
 	});
 })(jQuery, window);

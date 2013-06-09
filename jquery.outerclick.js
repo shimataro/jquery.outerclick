@@ -10,7 +10,7 @@
 		 * 指定要素の先祖か？
 		 * @function
 		 * @param {jQuery|HTMLElement} target 対象要素
-		 * @return {Boolean} targetの先祖要素ならtrue、そうでなければfalse
+		 * @return {Boolean} 先頭要素がtargetの先頭要素の先祖ならtrue、そうでなければfalse
 		 */
 		isAncestorOf: (function()
 		{
@@ -70,9 +70,13 @@
 			{
 				if(fn !== u)
 				{
-					// 要素一覧にpushして、イベントに関連付け
-					$elements.push(this);
-					return this.bind(eventname, fn);
+					// 要素一覧に追加して、イベントに関連付け
+					return this
+						.each(function()
+						{
+							$elements.push($(this));
+						})
+						.bind(eventname, fn);
 				}
 				else
 				{
