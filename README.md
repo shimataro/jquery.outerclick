@@ -4,7 +4,7 @@ jQuery plugin that fires "outerclick" event
 
 # Sample
 
-See sample.html
+See [sample.html](sample.html)
 
 # Other
 
