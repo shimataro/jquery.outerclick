@@ -62,10 +62,10 @@ div#el5
 {
 	$(function($)
 	{
-		$("#el2,#el5").outerclick(function(event)
+		$("#el2,#el5").outerclick(function()
 		{
 			window.alert("outside of #" + $(this).attr("id") + " clicked");
-			event.stopPropagation();
+			return false;
 		});
 	});
 })(jQuery, window);

@@ -4,7 +4,7 @@ jQuery plugin that fires "outerclick" event
 
 # Caution
 
-Call "event.stopPropagation()" in the event handler since "outerclick" event should not be bubbled.
+return false in the event handler since "outerclick" event should not be bubbled.
 
 # Sample
 
